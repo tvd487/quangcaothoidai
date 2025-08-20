@@ -3,596 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreativeEdge - Premium Advertising Design</title>
+    <title>Công ty TNHH Quảng cáo Thời Đại</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-button:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            color: white;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.1);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .service-card p {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .portfolio-item {
-            height: 250px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .portfolio-item:hover::before {
-            opacity: 1;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .submit-btn {
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
+            font-family: 'Inter', sans-serif;
+            /* Added a subtle gradient background */
+            background: linear-gradient(135deg, #1f2937, #374151); /* Darker, more impressive gradient */
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">CreativeEdge</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-gray-100 text-gray-800 flex items-center justify-center min-h-screen p-4">
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Creative Design Solutions</h1>
-            <p>We transform your brand vision into powerful advertising campaigns that captivate, engage, and convert your target audience.</p>
-            <a href="#contact" class="cta-button">Start Your Project</a>
+    <!-- Main container for the card-like layout -->
+    <div class="max-w-4xl w-full bg-white rounded-xl shadow-2xl p-8 space-y-6 transform transition-all duration-300 hover:scale-[1.01]">
+        
+        <!-- Header section -->
+        <div class="text-center">
+            <!-- Changed text color to the specified red -->
+            <h1 class="text-3xl sm:text-4xl font-bold text-[#D10000]">📍 Công ty TNHH Quảng cáo Thời Đại</h1>
+            <p class="text-lg text-gray-500 mt-2">Thiết kế chạm đến cảm xúc, quảng cáo đi vào tâm trí.</p>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About CreativeEdge</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>With over 10 years of experience in the advertising industry, CreativeEdge has been at the forefront of innovative design solutions. We specialize in creating compelling visual narratives that not only look stunning but drive real business results.</p>
-                    <p>Our team of talented designers, strategists, and creative directors work collaboratively to ensure every project exceeds expectations and delivers measurable impact for our clients.</p>
-                </div>
-                <div class="about-features">
-                    <div class="feature">
-                        <div class="feature-icon">🎨</div>
-                        <h3>Creative Excellence</h3>
-                        <p>Award-winning designs that stand out</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Results Driven</h3>
-                        <p>Campaigns that deliver ROI</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Fast Turnaround</h3>
-                        <p>Quick delivery without compromising quality</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🤝</div>
-                        <h3>Client Partnership</h3>
-                        <p>Collaborative approach to success</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Map container -->
+        <!-- Added a fixed height to ensure the map has a visible area -->
+        <div class="relative w-full rounded-xl overflow-hidden shadow-inner border-4 border-gray-200" style="height: 500px;">
+            <!--
+                The iframe is used to embed the Google Map.
+                The 'src' attribute contains the unique embed URL for the location.
+                The 'absolute inset-0' classes make the iframe fill its parent container.
+            -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15309.247657560411!2d108.2335944!3d16.0564009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219bfc86c8e91%3A0xb9f92f41decd6503!2sC%C3%94NG%20TY%20TNHH%20QU%E1%BA%A2NG%20C%C3%81O%20TH%E1%BB%9CI%20%C4%90%E1%BA%A0I!5e0!3m2!1svi!2s!4v1625442222222!5m2!1svi!2s"
+                width="100%"
+                height="100%"
+                class="absolute inset-0 w-full h-full"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Brand Identity Design</h3>
-                    <p>Complete brand development including logos, color schemes, typography, and brand guidelines that create lasting impressions.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Digital Advertising</h3>
-                    <p>Eye-catching banner ads, social media graphics, and digital campaigns optimized for maximum engagement and conversion.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Print Advertising</h3>
-                    <p>Professional brochures, flyers, posters, and magazine ads that communicate your message with impact and clarity.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Web Design</h3>
-                    <p>Responsive websites and landing pages that combine beautiful aesthetics with seamless user experience and functionality.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Packaging Design</h3>
-                    <p>Product packaging that not only protects but sells, creating shelf appeal and brand recognition in competitive markets.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Marketing Strategy</h3>
-                    <p>Comprehensive marketing strategies that align design with business goals for maximum market impact and growth.</p>
-                </div>
-            </div>
+        <!-- Location details and action button -->
+        <div class="text-center">
+            <p class="text-sm text-gray-400">
+                Data provided by Google Maps.
+            </p>
+            <a
+                href="https://www.google.com/maps/place/C%C3%94NG+TY+TNHH+QU%E1%BA%A2NG+C%C3%81O+TH%E1%BB%9CI+%C4%90%E1%BA%A0I/@16.0564009,108.2335944,1122m/data=!3m2!1e3!4b1!4m6!3m5!1s0x314219bfc86c8e91:0xb9f92f41decd6503!8m2!3d16.0563958!4d108.2361747!16s%2Fg%2F11h76gmwv3?entry=ttu&g_ep=EgoyMDI1MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300"
+            >
+                View on Google Maps
+            </a>
         </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Our Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">Tech Startup Brand</div>
-                <div class="portfolio-item">Restaurant Campaign</div>
-                <div class="portfolio-item">Fashion E-commerce</div>
-                <div class="portfolio-item">Healthcare Branding</div>
-                <div class="portfolio-item">Real Estate Marketing</div>
-                <div class="portfolio-item">SaaS Product Launch</div>
-                <div class="portfolio-item">Luxury Brand Identity</div>
-                <div class="portfolio-item">Non-profit Campaign</div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Let's Create Together</h2>
-            <div class="contact-content">
-                <div>
-                    <h3>Ready to elevate your brand?</h3>
-                    <p>Get in touch with our team to discuss your project requirements. We're excited to bring your vision to life with creative solutions that drive results.</p>
-                    <br>
-                    <p><strong>📍 Address:</strong> 123 Design Street, Creative District</p>
-                    <p><strong>📞 Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>✉️ Email:</strong> hello@creativeedge.com</p>
-                    <p><strong>🕒 Hours:</strong> Mon-Fri 9AM-6PM</p>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Project Type">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="5" placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CreativeEdge. All rights reserved. | Crafting exceptional designs since 2015</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We\'ll get back to you soon.');
-        });
-    </script>
 </body>
 </html>
