@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Công ty TNHH Quảng cáo Thời Đại - Công ty thiết kế quảng cáo chuyên nghiệp tại Đà Nẵng, Việt Nam. Nâng tầm thương hiệu của bạn với những thiết kế sáng tạo và độc đáo.">
-    <meta name="keywords" content="công ty quảng cáo, thiết kế quảng cáo, quảng cáo thời đại, Đà Nẵng, thiết kế thương hiệu, marketing, sáng tạo">
-    <meta name="author" content="Công ty TNHH Quảng cáo Thời Đại">
-
-    <title>Công ty TNHH Quảng cáo Thời Đại</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Company information image page">
+    <meta name="keywords" content="company, information, business">
+    <meta name="author" content="Your Company Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Company Information">
+    <meta property="og:description" content="Company information image page">
+    <meta property="og:image" content="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Company Information">
+    <meta name="twitter:description" content="Company information image page">
+    <meta name="twitter:image" content="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg">
+    
+    <title>Company Information - Image Page</title>
+    
     <style>
         * {
             margin: 0;
@@ -35,6 +49,11 @@
         .image-container {
             text-align: center;
             margin: 20px 0;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .responsive-image {
@@ -42,6 +61,32 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .responsive-image.loaded {
+            opacity: 1;
+        }
+        
+        /* Spinner Styles */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+        }
+        
+        .spinner.hidden {
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Responsive breakpoints */
@@ -51,8 +96,7 @@
             }
             
             .container {
-                padding: 0;
-                border-radius: 0;
+                padding: 15px;
             }
             
             .responsive-image {
@@ -62,12 +106,11 @@
         
         @media screen and (max-width: 480px) {
             body {
-                padding: 0;
+                padding: 5px;
             }
             
             .container {
-                padding: 5px;
-                border-radius: 0;
+                padding: 10px;
             }
         }
         
@@ -80,7 +123,6 @@
             .container {
                 box-shadow: none;
                 padding: 0;
-                border-radius: 0;
             }
         }
     </style>
@@ -88,11 +130,44 @@
 <body>
     <div class="container">
         <div class="image-container">
+            <div class="spinner" id="spinner"></div>
             <img src="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg" 
-                 alt="Công ty TNHH Quảng cáo Thời Đại" 
+                 alt="Company Information" 
                  class="responsive-image"
-                 loading="lazy">
+                 id="mainImage"
+                 loading="eager">
         </div>
     </div>
+    
+    <script>
+        // Get elements
+        const spinner = document.getElementById('spinner');
+        const image = document.getElementById('mainImage');
+        
+        // Show spinner initially
+        spinner.style.display = 'block';
+        
+        // Handle image load
+        image.addEventListener('load', function() {
+            // Hide spinner and show image with fade-in effect
+            spinner.classList.add('hidden');
+            image.classList.add('loaded');
+        });
+        
+        // Handle image load error
+        image.addEventListener('error', function() {
+            spinner.classList.add('hidden');
+            // You could add error handling here
+            console.log('Image failed to load');
+        });
+        
+        // Fallback: Hide spinner after 10 seconds regardless
+        setTimeout(function() {
+            if (!spinner.classList.contains('hidden')) {
+                spinner.classList.add('hidden');
+                image.classList.add('loaded');
+            }
+        }, 10000);
+    </script>
 </body>
 </html>
