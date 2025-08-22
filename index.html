@@ -3,43 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Company information image page">
-    <meta name="keywords" content="company, information, business">
-    <meta name="author" content="Your Company Name">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Company Information">
-    <meta property="og:description" content="Company information image page">
-    <meta property="og:image" content="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Company Information">
-    <meta name="twitter:description" content="Company information image page">
-    <meta name="twitter:image" content="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg">
-    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Công ty TNHH Quảng cáo Thời Đại - Công ty thiết kế quảng cáo chuyên nghiệp tại Đà Nẵng, Việt Nam. Nâng tầm thương hiệu của bạn với những thiết kế sáng tạo và độc đáo.">
+    <meta name="keywords" content="công ty quảng cáo, thiết kế quảng cáo, quảng cáo thời đại, Đà Nẵng, thiết kế thương hiệu, marketing, sáng tạo">
+    <meta name="author" content="Công ty TNHH Quảng cáo Thời Đại">
+
+    <title>Công ty TNHH Quảng cáo Thời Đại</title>
+
     <!-- Preload critical image for faster loading -->
-    <link rel="preload" as="image" href="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg" fetchpriority="high">
-    
+    <link rel="preload" as="image" href="bg.jpg" fetchpriority="high">
+
     <title>Company Information - Image Page</title>
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f4f4f4;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -48,7 +37,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
+
         .image-container {
             text-align: center;
             margin: 20px 0;
@@ -58,7 +47,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .responsive-image {
             max-width: 100%;
             height: auto;
@@ -68,12 +57,12 @@
             transition: opacity 0.3s ease-in-out;
             display: none;
         }
-        
+
         .responsive-image.loaded {
             opacity: 1;
             display: block;
         }
-        
+
         /* Spinner Styles */
         .spinner {
             width: 50px;
@@ -84,47 +73,47 @@
             animation: spin 1s linear infinite;
             position: absolute;
         }
-        
+
         .spinner.hidden {
             display: none;
         }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         /* Responsive breakpoints */
         @media screen and (max-width: 768px) {
             body {
                 padding: 10px;
             }
-            
+
             .container {
                 padding: 15px;
             }
-            
+
             .responsive-image {
                 border-radius: 4px;
             }
         }
-        
+
         @media screen and (max-width: 480px) {
             body {
                 padding: 5px;
             }
-            
+
             .container {
                 padding: 10px;
             }
         }
-        
+
         /* Print styles */
         @media print {
             body {
                 background-color: white;
             }
-            
+
             .container {
                 box-shadow: none;
                 padding: 0;
@@ -138,15 +127,15 @@
             <div class="spinner" id="spinner"></div>
             <picture>
                 <!-- Mobile-optimized versions -->
-                <source media="(max-width: 480px)" 
-                        srcset="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg?w=480&quality=75" 
+                <source media="(max-width: 480px)"
+                        srcset="bg.jpg?w=480&quality=75"
                         type="image/jpeg">
-                <source media="(max-width: 768px)" 
-                        srcset="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg?w=768&quality=80" 
+                <source media="(max-width: 768px)"
+                        srcset="bg.jpg?w=768&quality=80"
                         type="image/jpeg">
                 <!-- Desktop version -->
-                <img src="https://i.ibb.co/5hppkMTT/TH-NG-TIN-C-NG-TY-1.jpg" 
-                     alt="Company Information" 
+                <img src="bg.jpg"
+                     alt="Company Information"
                      class="responsive-image"
                      id="mainImage"
                      loading="eager"
@@ -155,12 +144,12 @@
             </picture>
         </div>
     </div>
-    
+
     <script>
         // Get elements
         const spinner = document.getElementById('spinner');
         const image = document.getElementById('mainImage');
-        
+
         // Function to hide spinner and show image
         function showImage() {
             spinner.classList.add('hidden');
@@ -170,7 +159,7 @@
                 image.classList.add('loaded');
             }, 10);
         }
-        
+
         // Check if image is already loaded (cached)
         if (image.complete && image.naturalHeight !== 0) {
             showImage();
@@ -178,13 +167,13 @@
             // Handle image load
             image.addEventListener('load', showImage);
         }
-        
+
         // Handle image load error
         image.addEventListener('error', function() {
             spinner.classList.add('hidden');
             console.log('Image failed to load');
         });
-        
+
         // Fallback: Hide spinner after 10 seconds regardless
         setTimeout(function() {
             if (!spinner.classList.contains('hidden')) {
